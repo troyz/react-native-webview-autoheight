@@ -68,7 +68,7 @@ export default class MyWebView extends Component {
     const _h = this.props.autoHeight ? this.state.webViewHeight : this.props.defaultHeight;
     return (
       <WebView
-        injectedJavaScript={'(' + String(injectedScript) + ')();'}
+        injectedJavaScript={'(' + String(injectedScript) + ')();window.postMessage = String(Object.hasOwnProperty).replace("hasOwnProperty", "postMessage");'}
         scrollEnabled={this.props.scrollEnabled || false}
         onMessage={this._onMessage}
         javaScriptEnabled={true}
